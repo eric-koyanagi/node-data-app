@@ -1,10 +1,12 @@
 import { connect } from '../data/database.js';
-import { ModelService } from './ModelService.js';
+//import { modelService } from './model.js';
+import { ModelMapper } from '../jsonMappers/model_mapper.js';
+import { ConfigurationMapper } from '../jsonMappers/configuration_mapper.js';
 
 import { promises as fs } from 'fs';
 import * as path from 'path';
 
-export class MigrationService {
+class MigrationService {
     async migrateJsonToDB(directoryPath) {
         const client = await connect();
 
@@ -39,21 +41,32 @@ export class MigrationService {
 
         const dropTables = options?.dropTables || false;
         if (dropTables) {
-            const dropSql = await fs.readFile('./src/sql/dropTables.sql', 'utf8');
+            const dropSql = await fs.readFile('./src/sql/drop_tables.sql', 'utf8');
             await client.query(dropSql);
         }
 
-        const sql = await fs.readFile('./src/sql/createTables.sql', 'utf8');
+        const sql = await fs.readFile('./src/sql/create_tables.sql', 'utf8');
         return await client.query(sql);
     }
 
-    async insertModels(jsonModels) {
+    async insertModels(jsonModels) {        
         for (const jsonModel of jsonModels) {
             console.log(jsonModel);
+            const modelMapper = new ModelMapper(jsonModel);
+            const newModel = await modelMapper.insertToDatabase();
+
+            console.log("Model created", newModel?.rows[0]);
+            
+            await this.insertConfigurations(newModel?.rows[0].model_id, jsonModel.configurations);            
         }
     }
 
-    async insertConfigurations(configurations) {
-
+    async insertConfigurations(modelId, configurations) {          
+        for (const configuration of configurations) {
+            const configurationMapper = new ConfigurationMapper(configuration);
+            await configurationMapper.insertToDatabase(modelId);
+        }        
     }
 }
+
+export const migrationService = new MigrationService();

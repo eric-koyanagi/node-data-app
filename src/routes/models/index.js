@@ -1,5 +1,5 @@
 import express from 'express';
-import { ModelService } from '../../services/ModelService.js';
+import { ModelService } from '../../services/model.js';
 
 const modelService = new ModelService();
 const router = express.Router();
