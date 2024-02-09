@@ -1,20 +1,16 @@
-import { connect } from '../data/database';
+import { connect } from '../data/database.js';
 
-async function find(id) {
-    const client = await connectToDatabase();
-  
-    try {
-      const result = await client.query('SELECT * FROM your_table');
-      console.log(result.rows);
-    } catch (error) {
-      console.error('Error performing query:', error);
-    } finally {
-      await client.end();
+export class ModelService {
+    async find(id) {
+        const client = await connect();
+    
+        try {
+            const result = await client.query('');
+            console.log(result.rows);
+        } catch (error) {
+            console.error('Error performing query:', error);
+        } finally {
+            await client.end();
+        }
     }
-  }
-
-
-export default {
-    find
-
-};
+}

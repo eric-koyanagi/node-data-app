@@ -1,10 +1,9 @@
-import { Client } from 'pg';
+import pg from 'pg'
+import config from './config.js';
 
 async function connect() {
-  const config = require('./config.js'); 
-
   try {
-    const client = new Client(config);
+    const client = new pg.Client(config);
     await client.connect();
     return client;
   } catch (error) {
@@ -13,4 +12,6 @@ async function connect() {
   }
 }
 
-export default connect;
+export {
+    connect
+};

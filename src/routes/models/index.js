@@ -1,5 +1,7 @@
 import express from 'express';
+import { ModelService } from '../../services/ModelService.js';
 
+const modelService = new ModelService();
 const router = express.Router();
 
 router.get("/:model_id", function(request, response, next) {
