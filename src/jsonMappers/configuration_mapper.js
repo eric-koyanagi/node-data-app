@@ -2,17 +2,16 @@ import { MapperInterface } from '../interfaces/mapper.js';
 //import { configurationService } from '../services/configuration.js';
 
 class ConfigurationMapper extends MapperInterface {
-    constructor(json) {
+    constructor(configurations) {
         super();
-        console.log("constructing configuration mapper", json);
+        console.log("constructing configuration mapper");
 
+        for (const configuration of configurations) {
+            console.log("config under my model", configuration);
+        }
         
     }
 
-    async insertToDatabase(data) {
-        console.log("Inserting config data to DB: ", data);        
-        //return await modelService.newModel(this.key);
-    }
 }
 
 export {

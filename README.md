@@ -68,3 +68,7 @@ Using __PostMan__ will yield benefits.
 # Here for the code test?
 
 Look at the other `README.*.md` files in this project's root.
+
+# Run the Migration
+
+Ready to migrate data from JSON into the relational DB? From the project root, run `node ./scripts/migrate.js` to start the migration.

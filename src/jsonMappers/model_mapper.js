@@ -8,10 +8,6 @@ class ModelMapper extends MapperInterface {
 
         this.key = json.model;
     }
-
-    async insertToDatabase() {      
-        return await modelService.newModel(this.key);
-    }
 }
 
 export {

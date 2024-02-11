@@ -1,5 +1,7 @@
 import { connect } from '../data/database.js';
-//import { modelService } from './model.js';
+import { modelService } from './model.js';
+import { configurationService } from './configuration.js';
+
 import { ModelMapper } from '../jsonMappers/model_mapper.js';
 import { ConfigurationMapper } from '../jsonMappers/configuration_mapper.js';
 
@@ -53,19 +55,26 @@ class MigrationService {
         for (const jsonModel of jsonModels) {
             console.log(jsonModel);
             const modelMapper = new ModelMapper(jsonModel);
-            const newModel = await modelMapper.insertToDatabase();
+            const newModel = await modelService.newRecord(modelMapper.key);
 
-            console.log("Model created", newModel?.rows[0]);
-            
-            await this.insertConfigurations(newModel?.rows[0].model_id, jsonModel.configurations);            
+            // Inserts a new model and its configurations, wrapped in a transaction            
+            //await this.insertConfigurations(newModel?.rows[0].model_id, jsonModel.configurations); 
+            const configurationMapper = new ConfigurationMapper(jsonModel.configurations);
+            await configurationService.newRecord(newModel?.rows[0].model_id, configurationMapper);
+
+            await modelService.endTransaction();
         }
     }
 
     async insertConfigurations(modelId, configurations) {          
+        const configurationMapper = new ConfigurationMapper(configurations);
+        
+
+        /*
         for (const configuration of configurations) {
             const configurationMapper = new ConfigurationMapper(configuration);
             await configurationMapper.insertToDatabase(modelId);
-        }        
+        } */       
     }
 }
 
