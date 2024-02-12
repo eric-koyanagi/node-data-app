@@ -26,7 +26,63 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "models",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/models/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"models",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "123"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"7b-Ueimun3MTDplzL3HPdVC1QduPt8\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 12 Feb 2024 19:17:00 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"model_key\": \"C:G:P24:1:D\",\n        \"model_id\": 1\n    },\n    {\n        \"model_key\": \"C:G:XT:1:D\",\n        \"model_id\": 2\n    },\n    {\n        \"model_key\": \"P:G:018:1:D\",\n        \"model_id\": 3\n    }\n]"
+				}
+			]
 		},
 		{
 			"name": "models/:id",
@@ -47,7 +103,63 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "models/:id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/models/C:G:P24:1:D",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"models",
+								"C:G:P24:1:D"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "40"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"28-gGej6LCBdpAviQoM9BFH8P5ZhdQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 12 Feb 2024 19:17:07 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"model_key\": \"C:G:P24:1:D\",\n    \"model_id\": 1\n}"
+				}
+			]
 		},
 		{
 			"name": "models/:id/configurations",
@@ -69,7 +181,64 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "models/:id/configurations",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/models/C:G:P24:1:D/configurations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"models",
+								"C:G:P24:1:D",
+								"configurations"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1920"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"780-GVWZooCt2WVDv9E2NDRnmcpQiqE\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 12 Feb 2024 19:17:15 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"config_id\": 1,\n        \"model_id\": 1,\n        \"product_name\": \"Smokey Charcoal Grill + Smoker\",\n        \"advertising_names\": {\n            \"names\": [\n                \"Smokey Smoker\"\n            ]\n        },\n        \"brand\": \"Smokey\",\n        \"features\": {\n            \"sessionGraph\": {\n                \"fanSpeed\": true,\n                \"visibility\": true,\n                \"maxSessions\": 1,\n                \"showHistory\": true,\n                \"localStorage\": true\n            },\n            \"setTempFirst\": null,\n            \"openDoorMessage\": null\n        },\n        \"firmware\": \"\",\n        \"provisioning\": {\n            \"instructions\": [\n                \"Press and hold the CONNECT button on your Smokey device until you hear a long beep.\",\n                \"After the long beep, proceed to the next screen.\"\n            ],\n            \"provisionImage\": null\n        },\n        \"published\": true,\n        \"testing_status\": \"production\",\n        \"testing_whitelist\": {\n            \"whitelist\": []\n        },\n        \"bluetooth_data_chunks\": true,\n        \"bluetooth_mtu\": 23\n    },\n    {\n        \"config_id\": 2,\n        \"model_id\": 1,\n        \"product_name\": \"Smokey Charcoal Grill + Smoker\",\n        \"advertising_names\": {\n            \"names\": [\n                \"Smokey Smoker\"\n            ]\n        },\n        \"brand\": \"Smokey\",\n        \"features\": {\n            \"sessionGraph\": {\n                \"fanSpeed\": true,\n                \"visibility\": true,\n                \"maxSessions\": 1,\n                \"showHistory\": true,\n                \"localStorage\": true\n            },\n            \"setTempFirst\": null,\n            \"openDoorMessage\": null\n        },\n        \"firmware\": \"\",\n        \"provisioning\": {\n            \"instructions\": [\n                \"Press and hold the CONNECT button on your Smokey device until you hear a long beep.\",\n                \"After the long beep, proceed to the next screen.\"\n            ],\n            \"provisionImage\": null\n        },\n        \"published\": false,\n        \"testing_status\": \"beta\",\n        \"testing_whitelist\": {\n            \"whitelist\": []\n        },\n        \"bluetooth_data_chunks\": true,\n        \"bluetooth_mtu\": 23\n    },\n    {\n        \"config_id\": 3,\n        \"model_id\": 1,\n        \"product_name\": \"Smokey Charcoal Grill + Smoker\",\n        \"advertising_names\": {\n            \"names\": [\n                \"Smokey Smoker\"\n            ]\n        },\n        \"brand\": \"Smokey\",\n        \"features\": {\n            \"sessionGraph\": {\n                \"fanSpeed\": true,\n                \"visibility\": true,\n                \"maxSessions\": 1,\n                \"showHistory\": true,\n                \"localStorage\": true\n            },\n            \"setTempFirst\": null,\n            \"openDoorMessage\": null\n        },\n        \"firmware\": \"\",\n        \"provisioning\": {\n            \"instructions\": [\n                \"Press and hold the CONNECT button on your Smokey device until you hear a long beep.\",\n                \"After the long beep, proceed to the next screen.\"\n            ],\n            \"provisionImage\": null\n        },\n        \"published\": false,\n        \"testing_status\": \"beta\",\n        \"testing_whitelist\": {\n            \"whitelist\": []\n        },\n        \"bluetooth_data_chunks\": true,\n        \"bluetooth_mtu\": 23\n    }\n]"
+				}
+			]
 		},
 		{
 			"name": "models/:id/configurations?published=true",
@@ -97,7 +266,70 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "models/:id/configurations?published=true",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/models/C:G:P24:1:D/configurations?published=true",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"models",
+								"C:G:P24:1:D",
+								"configurations"
+							],
+							"query": [
+								{
+									"key": "published",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "644"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"284-mvpWFc8L0d6k/wQ3ZFCpKXfvBNY\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 12 Feb 2024 19:17:20 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"config_id\": 1,\n        \"model_id\": 1,\n        \"product_name\": \"Smokey Charcoal Grill + Smoker\",\n        \"advertising_names\": {\n            \"names\": [\n                \"Smokey Smoker\"\n            ]\n        },\n        \"brand\": \"Smokey\",\n        \"features\": {\n            \"sessionGraph\": {\n                \"fanSpeed\": true,\n                \"visibility\": true,\n                \"maxSessions\": 1,\n                \"showHistory\": true,\n                \"localStorage\": true\n            },\n            \"setTempFirst\": null,\n            \"openDoorMessage\": null\n        },\n        \"firmware\": \"\",\n        \"provisioning\": {\n            \"instructions\": [\n                \"Press and hold the CONNECT button on your Smokey device until you hear a long beep.\",\n                \"After the long beep, proceed to the next screen.\"\n            ],\n            \"provisionImage\": null\n        },\n        \"published\": true,\n        \"testing_status\": \"production\",\n        \"testing_whitelist\": {\n            \"whitelist\": []\n        },\n        \"bluetooth_data_chunks\": true,\n        \"bluetooth_mtu\": 23\n    }\n]"
+				}
+			]
 		},
 		{
 			"name": "models/:id/configurations/:config_id",
@@ -120,7 +352,65 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "models/:id/configurations/:config_id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/models/C:G:P24:1:D/configurations/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"models",
+								"C:G:P24:1:D",
+								"configurations",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "642"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"282-BWFMa7PEQQfhMR0Q2KhP7Hl6JS8\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 12 Feb 2024 19:17:26 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"config_id\": 1,\n    \"model_id\": 1,\n    \"product_name\": \"Smokey Charcoal Grill + Smoker\",\n    \"advertising_names\": {\n        \"names\": [\n            \"Smokey Smoker\"\n        ]\n    },\n    \"brand\": \"Smokey\",\n    \"features\": {\n        \"sessionGraph\": {\n            \"fanSpeed\": true,\n            \"visibility\": true,\n            \"maxSessions\": 1,\n            \"showHistory\": true,\n            \"localStorage\": true\n        },\n        \"setTempFirst\": null,\n        \"openDoorMessage\": null\n    },\n    \"firmware\": \"\",\n    \"provisioning\": {\n        \"instructions\": [\n            \"Press and hold the CONNECT button on your Smokey device until you hear a long beep.\",\n            \"After the long beep, proceed to the next screen.\"\n        ],\n        \"provisionImage\": null\n    },\n    \"published\": true,\n    \"testing_status\": \"production\",\n    \"testing_whitelist\": {\n        \"whitelist\": []\n    },\n    \"bluetooth_data_chunks\": true,\n    \"bluetooth_mtu\": 23\n}"
+				}
+			]
 		},
 		{
 			"name": "404 example",
@@ -143,7 +433,65 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "404 example",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/models/C:G:P24:1:D/configurations/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"models",
+								"C:G:P24:1:D",
+								"configurations",
+								"10"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "23"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"17-SuRA/yvUWUo8rK6x7dKURLeBo+0\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 12 Feb 2024 19:17:31 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Not Found\"\n}"
+				}
+			]
 		}
 	]
 }
