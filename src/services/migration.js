@@ -53,28 +53,18 @@ class MigrationService {
 
     async insertModels(jsonModels) {        
         for (const jsonModel of jsonModels) {
-            console.log(jsonModel);
+            // Inserts a new model and its configurations, wrapped in a transaction
             const modelMapper = new ModelMapper(jsonModel);
             const newModel = await modelService.newRecord(modelMapper.key);
-
-            // Inserts a new model and its configurations, wrapped in a transaction            
-            //await this.insertConfigurations(newModel?.rows[0].model_id, jsonModel.configurations); 
-            const configurationMapper = new ConfigurationMapper(jsonModel.configurations);
-            await configurationService.newRecord(newModel?.rows[0].model_id, configurationMapper);
-
+                      
+            const configurationMapper = new ConfigurationMapper(
+                newModel?.rows[0].model_id, 
+                jsonModel.configurations
+            );
+            await configurationService.newRecord(configurationMapper);
             await modelService.endTransaction();
+            console.log("--> Model created: ", modelMapper.key)
         }
-    }
-
-    async insertConfigurations(modelId, configurations) {          
-        const configurationMapper = new ConfigurationMapper(configurations);
-        
-
-        /*
-        for (const configuration of configurations) {
-            const configurationMapper = new ConfigurationMapper(configuration);
-            await configurationMapper.insertToDatabase(modelId);
-        } */       
     }
 }
 

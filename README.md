@@ -72,3 +72,19 @@ Look at the other `README.*.md` files in this project's root.
 # Run the Migration
 
 Ready to migrate data from JSON into the relational DB? From the project root, run `node ./scripts/migrate.js` to start the migration.
+
+#  Project Structure
+- data: contains database config and connection utilities
+- interfaces: contains interfaces
+- jsonMappers: contains classes that map JSON fields into SQL data, doing any transformations required 
+- services: encapsulates all DB operations and SQL; represents data models
+- sql: canned SQL to create (and drop) tables for data migration
+
+#  Shema Explanation
+- All models preserve the string-based model "key", but I added an integer-based surrogate key to optimize joins. 
+- More denormalization is possible, but for simplicity I opted only for model and configurations tables, adding keys to make things like brand search or product name search more efficient
+
+# Project Next Steps
+Aiming to keep the development time at about 4 hours and minimize the use of third party packages, I decided not to use an ORM (I likely would otherwise). 
+
+For scaling millions of records, I might use something like an async queue system or leverage postgres COPY after translating the JSON docs into a flat CSV.

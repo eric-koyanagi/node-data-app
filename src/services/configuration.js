@@ -1,5 +1,7 @@
 import { connect } from '../data/database.js';
 import { Service } from './service.js';
+import { getFieldNames, getFieldTypes } from '../data/schema.js';
+import format from 'pg-format';
 
 class ConfigurationService extends Service {
     async find(id) {
@@ -15,24 +17,10 @@ class ConfigurationService extends Service {
         // }
     }
 
-    async newRecord(modelId, mapper) {
-        const sql = `INSERT INTO configurations(
-            model_id, 
-            product_name, 
-            advertising_names, 
-            brand,
-            features,
-            firmware,
-            provisioning,
-            published,
-            testing_status,
-            testing_ehitelist,
-            bluetooth_data_hunks,
-            bluetooth_mtu
-        ) VALUES `;
-
-        console.log("INSERT INTO configurations", sql, modelId, mapper);
-        //return await this.executeQuery(sql, [key]);        
+    async newRecord(mapper) {
+        const fieldNames = getFieldNames().join(',');
+        const sql = format(`INSERT INTO configurations(${fieldNames}) VALUES %L`, mapper.values);
+        return await this.executeQuery(sql, []);        
     }
 
     async executeQuery(sql, values) {
