@@ -80,7 +80,10 @@ Ready to migrate data from JSON into the relational DB? From the project root, r
 - services: encapsulates all DB operations and SQL; represents data models
 - sql: canned SQL to create (and drop) tables for data migration
 
-#  Shema Explanation
+# Migration Idempotency
+- Running migrate drops tables if they already exist. Set the DROP_TABLES_ON_MIGRATION env variable to `false` to disable this.
+
+# Shema Explanation
 - All models preserve the string-based model "key", but I added an integer-based surrogate key to optimize joins. 
 - More denormalization is possible, but for simplicity I opted only for model and configurations tables, adding keys to make things like brand search or product name search more efficient
 

@@ -41,7 +41,7 @@ class MigrationService {
     async createTables(options) {
         const client = await connect();
 
-        const dropTables = options?.dropTables || false;
+        const dropTables = process.env.DROP_TABLES_ON_MIGRATION || true;
         if (dropTables) {
             const dropSql = await fs.readFile('./src/sql/drop_tables.sql', 'utf8');
             await client.query(dropSql);

@@ -1,42 +1,49 @@
 import express from 'express';
-import { ModelService } from '../../services/model.js';
+import { modelService } from '../../services/model.js';
+import { configurationService } from '../../services/configuration.js';
 
-const modelService = new ModelService();
 const router = express.Router();
 
-router.get("/:model_id", function(request, response, next) {
+router.get("/", async function(request, response, next) {
+	const models = await modelService.all();
+	if (!models) {
+		return response.status(404).json({ message: 'Not Found' });;
+	}
+	return response.json( models );
+});
+
+router.get("/:model_id", async function(request, response, next) {
 	const {
 		params: {
 			model_id,
 		},
 	} = request;
 
-	//	-----
-	//	To-Do
-	//	-----
-	//	Query Postgres database for a model and return it in the response.
-
-
-	return response.json( {} );
+	const model = await modelService.find(model_id);
+	if (!model) {
+		return response.status(404).json({ message: 'Not Found' });;
+	}
+	return response.json( model );
 });
 
-router.get("/:model_id/configurations", function(request, response, next) {
+router.get("/:model_id/configurations", async function(request, response, next) {
 	const {
 		params: {
-			model_id,
+			model_id			
 		},
+		query: {
+			published
+		}
 	} = request;
 
-	//	-----
-	//	To-Do
-	//	-----
-	//	Query Postgres database for a model's configurations and return them in the response.
-
-
-	return response.json( {} );
+	const configurations = await configurationService.all(model_id, published);
+	if (!configurations) {
+		return response.status(404).json({ message: 'Not Found' });;
+	}
+	return response.json( configurations );
 });
 
-router.get("/:model_id/configurations/:configuration_id", function(request, response, next) {
+router.get("/:model_id/configurations/:configuration_id", async function(request, response, next) {
 	const {
 		params: {
 			model_id,
@@ -44,13 +51,11 @@ router.get("/:model_id/configurations/:configuration_id", function(request, resp
 		},
 	} = request;
 
-	//	-----
-	//	To-Do
-	//	-----
-	//	Query Postgres database for a model's configuration and return it in the response.
-
-
-	return response.json( {} );
+	const configuration = await configurationService.find(model_id, configuration_id);
+	if (!configuration) {
+		return response.status(404).json({ message: 'Not Found' });;
+	}
+	return response.json( configuration );	
 });
 
 export default router;

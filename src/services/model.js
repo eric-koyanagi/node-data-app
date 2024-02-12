@@ -2,17 +2,14 @@ import { connect } from '../data/database.js';
 import { Service } from './service.js';
 
 class ModelService extends Service {
+    async all() {
+        const result = await this.executeQuery("SELECT * FROM models m", []);
+        return result?.rows;
+    }
+
     async find(id) {
-        // const client = await connect();
-    
-        // try {
-        //     const result = await client.query('');
-        //     console.log(result.rows);
-        // } catch (error) {
-        //     console.error('Error performing query:', error);
-        // } finally {
-        //     await client.end();
-        // }
+        const result = await this.executeQuery("SELECT * FROM models m WHERE m.model_key=$1", [id]);
+        return result?.rows[0];
     }
 
     async newRecord(key) {
