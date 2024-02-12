@@ -16,7 +16,7 @@ class MigrationService {
         const jsonModels = await this.mapJsonFiles(directoryPath);
         
         // create DB tables if needed; a more complex project might use an ORM with a migration feature
-        await this.createTables({ dropTables: true });
+        await this.createTables();
 
         // inserts json models into SQL, mapping all fields as needed
         await this.insertModels(jsonModels);
@@ -38,11 +38,11 @@ class MigrationService {
         return jsonData;
     }
 
-    async createTables(options) {
+    async createTables() {
         const client = await connect();
 
-        const dropTables = process.env.DROP_TABLES_ON_MIGRATION || true;
-        if (dropTables) {
+        const dropTables = process.env.DROP_TABLES_ON_MIGRATION ?? true;
+        if (dropTables === 'true') {
             const dropSql = await fs.readFile('./src/sql/drop_tables.sql', 'utf8');
             await client.query(dropSql);
         }
