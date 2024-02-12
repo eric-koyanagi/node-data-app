@@ -1,0 +1,149 @@
+{
+	"info": {
+		"_postman_id": "c3ce13c1-23c3-4c9e-ad47-f7757608a462",
+		"name": "Envoy Code Test 2024",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32928027",
+		"_collection_link": "https://martian-star-775766.postman.co/workspace/New-Team-Workspace~a15f3707-ba96-4214-866d-07d86b60c623/collection/32928027-c3ce13c1-23c3-4c9e-ad47-f7757608a462?action=share&source=collection_link&creator=32928027"
+	},
+	"item": [
+		{
+			"name": "models",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/models/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"models",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "models/:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/models/C:G:P24:1:D",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"models",
+						"C:G:P24:1:D"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "models/:id/configurations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/models/C:G:P24:1:D/configurations",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"models",
+						"C:G:P24:1:D",
+						"configurations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "models/:id/configurations?published=true",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/models/C:G:P24:1:D/configurations?published=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"models",
+						"C:G:P24:1:D",
+						"configurations"
+					],
+					"query": [
+						{
+							"key": "published",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "models/:id/configurations/:config_id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/models/C:G:P24:1:D/configurations/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"models",
+						"C:G:P24:1:D",
+						"configurations",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "404 example",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/models/C:G:P24:1:D/configurations/10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"models",
+						"C:G:P24:1:D",
+						"configurations",
+						"10"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
